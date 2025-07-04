@@ -1,8 +1,5 @@
 import openai
 import streamlit as st
-from gtts import gTTS
-from pydub import AudioSegment
-from pydub.effects import speedup
 import tempfile
 import os
 
