@@ -53,7 +53,7 @@ st.title("🤖 G.A.PT. - Guillaume A Pété")
 st.markdown("Une IA qui raconte des blagues absurdes et marrantes avec une voix rigolote 💨")
 
 theme = st.selectbox("Choisis un thème de blague :", 
-                     ["absurde", "informatique", "crado", "propre", "animaux", "historique", "dev"])
+                     ["Chuck Norris", "absurde", "informatique", "drôle", "propre", "animaux", "historique", "dev"])
 
 keywords = st.text_input("Entrez un ou plusieurs mots-clés séparés par des virgules (optionnel) :", "")
 
