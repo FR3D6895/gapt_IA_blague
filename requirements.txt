@@ -1,6 +1,5 @@
 streamlit
-openai
+openai==1.93.0
 gtts
 pydub
 pyaudioop
-openai
