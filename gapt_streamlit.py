@@ -4,6 +4,7 @@ import streamlit as st
 # 🔐 Clé API stockée dans secrets.toml
 client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
+
 def generate_blague(theme, keywords):
     keywords_text = keywords.strip()
     if keywords_text:
@@ -14,7 +15,7 @@ def generate_blague(theme, keywords):
         prompt = (f"Raconte une blague {theme}, drôle et originale, "
                   f"comme si elle venait d'une IA humoristique appelée Guillaume A Pété (G.A.PT) 💨.")
 
-#syntaxe client OpenAI
+    # ✅ Bien indenté : à l’intérieur de la fonction
     completion = client.chat.completions.create(
         model="gpt-4",
         messages=[
@@ -23,6 +24,7 @@ def generate_blague(theme, keywords):
         ]
     )
     return completion.choices[0].message.content
+
 
 # Interface Streamlit
 st.title("🤖 G.A.PT. - Guillaume A Pété")
