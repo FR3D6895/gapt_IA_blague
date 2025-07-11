@@ -15,9 +15,9 @@ def generate_blague(theme, keywords):
         prompt = (f"Raconte une blague {theme}, drôle et originale, "
                   f"comme si elle venait d'une IA humoristique appelée Guillaume A Pété (G.A.PT) 💨.")
 
-    # ✅ Bien indenté : à l’intérieur de la fonction
+    # syntaxe client OpenAI
     completion = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Tu es une IA humoristique qui raconte des blagues drôles."},
             {"role": "user", "content": prompt}
