@@ -1,8 +1,8 @@
-from openai import OpenAI
 import streamlit as st
+import google.generativeai as genai
 
 # 🔐 Clé API stockée dans secrets.toml
-client = OpenAI(api_key=st.secrets["openai"]["api_key"])
+genai.configure(api_key=st.secrets["gemini_api_key"])
 
 
 def generate_blague(theme, keywords):
@@ -15,15 +15,10 @@ def generate_blague(theme, keywords):
         prompt = (f"Raconte une blague {theme}, drôle et originale, "
                   f"comme si elle venait d'une IA humoristique appelée Guillaume A Pété (G.A.PT) 💨.")
 
-    # syntaxe client OpenAI
-    completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "Tu es une IA humoristique qui raconte des blagues drôles."},
-            {"role": "user", "content": prompt}
-        ]
-    )
-    return completion.choices[0].message.content
+    # syntaxe client 
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(prompt)
+    return response.text
 
 
 # Interface Streamlit
